@@ -19,7 +19,7 @@ class DefaultResource {
     }
 
     @GetMapping("/invisible")
-    public ResponseEntity<Void> getSecret() {
+    public ResponseEntity<Void> getInvisible() {
         return ResponseEntity.noContent().build();
     }
 
