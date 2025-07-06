@@ -1,5 +1,7 @@
 package example.hello_security;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -15,8 +17,11 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 class SecurityConfig {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(SecurityConfig.class);
+
     @Bean
     public SecurityFilterChain securityWebFilterChain(HttpSecurity httpSecurity) throws Exception {
+        LOGGER.info("Log about security web filter");
         httpSecurity.authorizeHttpRequests(request ->
                 request
                         .requestMatchers("/open").permitAll()
@@ -29,6 +34,7 @@ class SecurityConfig {
 
     @Bean
     public UserDetailsService userDetailsService() {
+        LOGGER.info("Log about user details service");
         UserDetails userDetails =
                 User.withDefaultPasswordEncoder()
                         .username("user")
