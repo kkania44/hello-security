@@ -20,6 +20,7 @@ class SecurityConfig {
         httpSecurity.authorizeHttpRequests(request ->
                 request
                         .requestMatchers("/open").permitAll()
+                        .requestMatchers("/standard").permitAll()
                         .anyRequest().authenticated()
         )
                 .httpBasic(Customizer.withDefaults())
@@ -31,7 +32,7 @@ class SecurityConfig {
     public UserDetailsService userDetailsService() {
         UserDetails userDetails =
                 User.withDefaultPasswordEncoder()
-                        .username("user")
+                        .username("admin")
                         .password("password")
                         .roles("USER")
                         .build();
