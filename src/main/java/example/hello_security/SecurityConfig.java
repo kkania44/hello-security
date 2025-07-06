@@ -25,6 +25,7 @@ class SecurityConfig {
         httpSecurity.authorizeHttpRequests(request ->
                 request
                         .requestMatchers("/open").permitAll()
+                        .requestMatchers("/secret").denyAll()
                         .anyRequest().authenticated()
         )
                 .httpBasic(Customizer.withDefaults())
@@ -37,9 +38,9 @@ class SecurityConfig {
         LOGGER.info("Detailed Log about user details service");
         UserDetails userDetails =
                 User.withDefaultPasswordEncoder()
-                        .username("user")
+                        .username("admin")
                         .password("password")
-                        .roles("USER")
+                        .roles(Role.USER.toString())
                         .build();
         return new InMemoryUserDetailsManager(userDetails);
     }

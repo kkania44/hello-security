@@ -23,4 +23,9 @@ class DefaultResource {
         return ResponseEntity.noContent().build();
     }
 
+    @GetMapping("/secret")
+    public ResponseEntity<String> getSecret() {
+        return ResponseEntity.ok("Response with SECRET information");
+    }
+
 }
