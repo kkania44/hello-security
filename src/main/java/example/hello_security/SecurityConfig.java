@@ -34,7 +34,7 @@ class SecurityConfig {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        LOGGER.info("Log about user details service");
+        LOGGER.info("Detailed Log about user details service");
         UserDetails userDetails =
                 User.withDefaultPasswordEncoder()
                         .username("user")

@@ -1,5 +1,5 @@
 package example.hello_security;
 
 public enum Role {
-    ADMIN, USER
+    SUPER_ADMIN, ADMIN, USER
 }
