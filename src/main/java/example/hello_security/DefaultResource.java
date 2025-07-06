@@ -18,4 +18,9 @@ class DefaultResource {
         return ResponseEntity.ok("Default HTTP Response on unsecured resource");
     }
 
+    @GetMapping("/invisible")
+    public ResponseEntity<Void> getSecret() {
+        return ResponseEntity.noContent().build();
+    }
+
 }
